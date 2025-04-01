@@ -1,3 +1,4 @@
+using System;
 using TMPro;
 using UnityEngine;
 using UnityEngine.Events;
@@ -8,6 +9,16 @@ public class workshopUI : MonoBehaviour, IPointerClickHandler
     [SerializeField] private TMP_Text WSText;
 
     public event UnityAction OnWorkshopNameClick;
+
+    private void Awake()
+    {
+        ClickerDataSO.Instance.OnWorkshopNameChange += changeWorkSText;
+    }
+
+    private void changeWorkSText(string newName)
+    {
+        WSText.text = newName;
+    }
 
     private void Start()
     {

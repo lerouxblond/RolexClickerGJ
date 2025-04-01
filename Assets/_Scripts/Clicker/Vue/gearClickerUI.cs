@@ -7,16 +7,10 @@ using UnityEngine.UI;
 
 public class gearClickerUI : MonoBehaviour, IPointerClickHandler
 {
-    #region Input
-    [Header("InputReader")]
-    public InputReader inputReader;
-
-    #endregion
 
     #region UI
     [Header("UI")]
     [SerializeField] private Image gearSprite;
-    [SerializeField] private Image gearBorder;
 
     private float animationClickDuration = 0.2f;
     private float scaleFactor = 0.8f;
@@ -28,7 +22,6 @@ public class gearClickerUI : MonoBehaviour, IPointerClickHandler
 
     private void Start()
     {
-        gearBorder.enabled = false;
         originalScale = transform.localScale;
     }
 

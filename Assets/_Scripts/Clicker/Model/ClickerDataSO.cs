@@ -34,10 +34,13 @@ public class ClickerDataSO : ScriptableObject
     [field: Header("Workshop Name")]
     [field: SerializeField]
     public string workshopName { get; set; } = "Workshop";
+    public UnityAction<string> OnWorkshopNameChange;
 
-    public void changeName(string name)
+    public string changeName(string name)
     {
         workshopName = name;
+        OnWorkshopNameChange?.Invoke(workshopName);
+        return workshopName;
     }
 
     public void AddGear()
