@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 using UnityEngine.Events;
 using UnityEngine.EventSystems;
@@ -33,12 +34,20 @@ public class ClickerDataSO : ScriptableObject
 
     [field: Header("Workshop Name")]
     [field: SerializeField]
-    public string workshopName { get; set; } = "Workshop";
+    public string workshopName { get; set; }
+    private const string DefaultWorkshopName = "Workshop";
+
     public UnityAction<string> OnWorkshopNameChange;
+
+    private string checkIfEmptyWorkshopName(string name)
+    {
+        return string.IsNullOrWhiteSpace(workshopName) ? DefaultWorkshopName : name;
+    }
 
     public string changeName(string name)
     {
-        workshopName = name;
+        workshopName = checkIfEmptyWorkshopName(name);
+        Debug.Log(workshopName);
         OnWorkshopNameChange?.Invoke(workshopName);
         return workshopName;
     }
