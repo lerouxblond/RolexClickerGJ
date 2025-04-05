@@ -1,16 +1,67 @@
+using System;
 using UnityEngine;
+using UnityEngine.Events;
 
 public class BuildingController : MonoBehaviour
 {
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
-    void Start()
+    #region Data
+    [field: SerializeField]
+    public BuildingListSO buildingList { get; set; }
+
+    #endregion
+
+    #region UI
+    [SerializeField] private BuildingListUI buildingListUI;
+
+    #endregion
+    #region Events
+    public UnityAction OnBuildingBuy, OnBuildingSell;
+
+    #endregion
+
+    private void Awake()
     {
-        
+        buildingListUI.OnBuildingSlotBuy += BuyBuilding;
+        buildingListUI.OnBuildingSlotSell += SellBuilding;
     }
 
-    // Update is called once per frame
-    void Update()
+    private void Start()
     {
-        
+        InitializeBuildingSlots();
+        InitializeBuildingData();
     }
+
+    #region Building Methods
+    public void BuyBuilding(BuildingSO building)
+    {
+        building.buyBuilding();
+        UpdateBuildingSlots();
+    }
+    public void SellBuilding(BuildingSO building)
+    {
+        building.sellBuilding();
+        UpdateBuildingSlots();
+    }
+
+    private void InitializeBuildingData()
+    {
+        foreach (var building in buildingList.buildingList)
+        {
+            if(building.originBuildingCost == 0)
+                building.originBuildingCost = building.buildingCost;
+        }
+    }
+
+    #endregion
+
+    #region UI Methods
+    public void InitializeBuildingSlots()
+    {
+        buildingListUI.InitializeBuildingSlots(buildingList);
+    }
+    public void UpdateBuildingSlots()
+    {
+        buildingListUI.UpdateBuildingSlots(buildingList);
+    }
+    #endregion
 }

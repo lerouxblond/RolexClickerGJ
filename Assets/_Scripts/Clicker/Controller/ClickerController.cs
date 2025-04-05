@@ -20,7 +20,7 @@ public class ClickerController : MonoBehaviour
 
     private void addGearToCounter()
     {
-        ClickerDataSO.Instance.AddGear();
+        ClickerDataSO.Instance.AddGear(ClickerDataSO.Instance.gearPerClick);
         informAboutGearCountChange?.Invoke();
     }
 

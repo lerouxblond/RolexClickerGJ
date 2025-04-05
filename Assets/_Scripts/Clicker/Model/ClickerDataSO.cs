@@ -1,4 +1,6 @@
+using NUnit.Framework;
 using System;
+using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
 using UnityEngine.EventSystems;
@@ -32,6 +34,10 @@ public class ClickerDataSO : ScriptableObject
     [field: SerializeField]
     public float gearPerClick { get; set; } = 1.0f;
 
+    [field: Header("Possessed Building Data")]
+    [field: SerializeField]
+    public BuildingListSO possesedBuilding { get; set; }
+
     [field: Header("Workshop Name")]
     [field: SerializeField]
     public string workshopName { get; set; }
@@ -52,18 +58,49 @@ public class ClickerDataSO : ScriptableObject
         return workshopName;
     }
 
-    public void AddGear()
+    public void AddGear(float gearToAdd)
     {
-        gearCount += gearPerClick;
+        gearCount += gearToAdd;
     }
 
-    public void RemoveGear(int gearToRemove)
+    public void RemoveGear(float gearToRemove)
     {
         gearCount -= gearToRemove;
+        if(gearCount < 0)
+        {
+            gearCount = 0;
+        }
     }
 
     public void AddGearPerSecond()
     {
         gearCount += gearPerSecond;
     }
+
+    public float getGearRatePerSecond()
+    {
+        // return the rate of gear per second depending on the building multiplier
+        
+        return possesedBuilding.GetRPSBuildingMultiplier();
+    }
+
+    public float getGearRatePerClick()
+    {
+        // return the rate of gear per click depending on the building multiplier
+        
+        return possesedBuilding.GetRPCBuildingMultiplier();
+    }
+
+    public void setGearPerClick()
+    {
+        gearPerClick = 1.0f;
+        gearPerClick += getGearRatePerClick();
+    }
+
+    public void setGearPerSecond()
+    {
+        gearPerSecond = 0.0f;
+        gearPerSecond += getGearRatePerSecond();
+    }
+
 }

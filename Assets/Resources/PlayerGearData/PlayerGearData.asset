@@ -12,7 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 15079edac38e2204191e597ee4f17fa6, type: 3}
   m_Name: PlayerGearData
   m_EditorClassIdentifier: 
-  <gearCount>k__BackingField: 88
+  <gearCount>k__BackingField: 60.199997
   <gearPerSecond>k__BackingField: 0
   <gearPerClick>k__BackingField: 1
+  <possesedBuilding>k__BackingField: {fileID: 11400000, guid: 93c1d78f6129fbf4581b051c2e07ea66, type: 2}
   <workshopName>k__BackingField: Workshop
