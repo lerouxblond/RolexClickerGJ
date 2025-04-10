@@ -12,5 +12,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5148ed2095a1dbe4a84452b2bb47c7f1, type: 3}
   m_Name: PossessedBuildingList
   m_EditorClassIdentifier: 
-  <buildingList>k__BackingField:
-  - {fileID: 11400000, guid: d04d6a3062ad0c841a1646dcd9c41956, type: 2}
+  <buildingList>k__BackingField: []

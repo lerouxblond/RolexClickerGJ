@@ -10,14 +10,6 @@ public class UpgradeListSO : ScriptableObject
     public void getUpgrade()
     {
         ListOfUpgrade = new List<BuildingUpgradeSO>(Resources.LoadAll<BuildingUpgradeSO>("PlayerGearData/Upgrades/"));
-        foreach (BuildingUpgradeSO item in ListOfUpgrade)
-        {
-            if (item.asBeenBuy)
-                RemoveFromUpgradeList(item);
-            else
-                continue;
-        }
-
     }
 
     public void RemoveFromUpgradeList(BuildingUpgradeSO upgrade)

@@ -18,7 +18,7 @@ MonoBehaviour:
   <upgradeCost>k__BackingField: 500
   <asBeenBuy>k__BackingField: 0
   <amountOfBuildingToUnlock>k__BackingField: 10
-  <isUnlocked>k__BackingField: 1
+  <isUnlocked>k__BackingField: 0
   <buildingToUpgrade>k__BackingField: {fileID: 11400000, guid: d04d6a3062ad0c841a1646dcd9c41956, type: 2}
   <buildUpgradeBuff>k__BackingField:
     gearPerClickMultiplier: 1

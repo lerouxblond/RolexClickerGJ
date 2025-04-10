@@ -7,7 +7,7 @@ public class InputReader : ScriptableObject, PlayerInput.IPlayerActions
 {
     private PlayerInput playerInput;
 
-    public UnityAction OnClickEvent;
+    public UnityAction OnExitGameEvent;
 
 
     private void OnEnable()
@@ -25,9 +25,11 @@ public class InputReader : ScriptableObject, PlayerInput.IPlayerActions
         playerInput.Disable();
     }
 
-    public void OnClick(InputAction.CallbackContext context)
+    public void OnExitGame(InputAction.CallbackContext context)
     {
-        if(context.started)
-            OnClickEvent?.Invoke();
+        if(context.performed)
+        {
+            OnExitGameEvent?.Invoke();
+        }
     }
 }

@@ -6,9 +6,9 @@
             "id": "a9e6c34a-ef56-43f0-8ae4-575ab5ff7e92",
             "actions": [
                 {
-                    "name": "Click",
+                    "name": "ExitGame",
                     "type": "Button",
-                    "id": "e8b2e3e3-4fe8-49a3-b09f-1e3a357c2c5c",
+                    "id": "f0184813-fa93-4913-a7c1-40b642f2e927",
                     "expectedControlType": "",
                     "processors": "",
                     "interactions": "",
@@ -18,12 +18,12 @@
             "bindings": [
                 {
                     "name": "",
-                    "id": "b4b9a4ab-32b2-4ffa-9ea0-caf82a460373",
-                    "path": "<Mouse>/leftButton",
+                    "id": "a39f6223-bc5b-4460-a7b5-86587efff02e",
+                    "path": "<Keyboard>/escape",
                     "interactions": "",
                     "processors": "",
                     "groups": "",
-                    "action": "Click",
+                    "action": "ExitGame",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }

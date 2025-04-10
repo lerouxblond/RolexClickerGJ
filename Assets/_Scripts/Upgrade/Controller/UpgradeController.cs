@@ -34,10 +34,9 @@ public class UpgradeController : MonoBehaviour
             if (upgrade.amountOfBuildingToUnlock == upgrade.buildingToUpgrade.amountOfBuilding && !upgrade.isUnlocked)
             {
                 upgrade.unlockUpgrade();
-                Debug.Log(upgrade.isUnlocked);
                 upgradeListUI.updateSlotUI(upgradeListUI);
             }
-            Debug.Log(upgrade.isUnlocked);
+            
         }
     }
 }

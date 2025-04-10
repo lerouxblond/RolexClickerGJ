@@ -75,7 +75,7 @@ public class BuildingController : MonoBehaviour
     {
         foreach (var building in buildingList.buildingList)
         {
-            if (building.buildingUnlockCost == ClickerDataSO.Instance.gearCount && !building.isUnlocked)
+            if (ClickerDataSO.Instance.gearCount >= building.buildingUnlockCost && !building.isUnlocked)
             {
                 building.unlockBuilding();
                 UpdateBuildingSlots();

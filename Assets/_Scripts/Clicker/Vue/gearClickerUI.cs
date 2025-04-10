@@ -17,6 +17,11 @@ public class gearClickerUI : MonoBehaviour, IPointerClickHandler
     private Vector3 originalScale;
 
     #endregion
+    #region Audio
+    [Header("Audio")]
+    [SerializeField] private AudioClip clickAudioClip;
+    public SoundManager soundManager;
+    #endregion
 
     public UnityAction OnGearClicked;
 
@@ -36,7 +41,8 @@ public class gearClickerUI : MonoBehaviour, IPointerClickHandler
     private IEnumerator AnimateClickedButton()
     {
         Vector3 targetScale = originalScale * scaleFactor;
-        
+        soundManager.PlaySound(clickAudioClip);
+
         yield return StartCoroutine(ScaleOverTime(targetScale, animationClickDuration / 2));
 
         yield return StartCoroutine(ScaleOverTime(originalScale, animationClickDuration / 2));

@@ -14,6 +14,11 @@ public class UpgradeSlotUI : MonoBehaviour, IPointerClickHandler
 
     public UnityAction<BuildingUpgradeSO> OnUpgradeSlotClick;
 
+    private void Start()
+    {
+        ShowUpgradeSlot(data.isUnlocked);
+    }
+
     public void OnPointerClick(PointerEventData eventData)
     {
         if (eventData.button == PointerEventData.InputButton.Left)
