@@ -31,6 +31,7 @@ public class BuildingSlotUI : MonoBehaviour, IPointerClickHandler
         buildingNameTXT.text = buildingSO.buildingName;
         buildingCostTXT.text = buildingSO.buildingCost.ToString();
         buildingPossessedTXT.text = buildingSO.amountOfBuilding.ToString();
+        showBuildingSlot(buildingSO.isUnlocked);
     }
 
     public void UpdateBuildingCost()
@@ -55,5 +56,13 @@ public class BuildingSlotUI : MonoBehaviour, IPointerClickHandler
             Debug.Log("Right Click");
             OnBuildingSlotSell?.Invoke(buildingSO);
         }
+    }
+
+    public void showBuildingSlot(bool isUnlocked)
+    {
+        if(isUnlocked)
+            this.gameObject.SetActive(true);
+        else
+            this.gameObject.SetActive(false);
     }
 }

@@ -24,6 +24,7 @@ public class BuildingListUI : MonoBehaviour
             buildingSlot.Initialize(buildingSO);
             buildingSlot.OnBuildingSlotBuy += OnBuildingSlotBuy;
             buildingSlot.OnBuildingSlotSell += OnBuildingSlotSell;
+            buildingSO.OnBuildingUnlock += buildingSlot.showBuildingSlot;
         }
     }
 

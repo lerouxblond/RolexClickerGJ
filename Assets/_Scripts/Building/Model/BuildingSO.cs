@@ -88,7 +88,6 @@ public class BuildingSO : ScriptableObject
             ClickerDataSO.Instance.AddGear(buildingCost);
             ClickerDataSO.Instance.setGearPerClick();
             ClickerDataSO.Instance.setGearPerSecond();
-            removeBuilding();
             OnBuildingSell?.Invoke();
         }
         else
@@ -101,7 +100,8 @@ public class BuildingSO : ScriptableObject
     {
         if (amountOfBuilding == 0 || buildingCost < originBuildingCost)
             buildingCost = originBuildingCost;
-        buildingCost -= subBuildingCost();
+        else
+            buildingCost -= subBuildingCost();
     }
 
     public void unlockBuilding()
@@ -123,15 +123,20 @@ public struct BuildingBuffs
         this.gearPerSecondBuff = gearPerSecondBuff;
     }
 
-    public void addBuff(float gearPerClick, float gearPerSecond)
+    public BuildingBuffs gearPerClickBuffMult(float gearPerClickBuff)
     {
-        gearPerClick += gearPerClickBuff;
-        gearPerSecond += gearPerSecondBuff;
+        return new BuildingBuffs
+        {
+            gearPerClickBuff = this.gearPerClickBuff * gearPerClickBuff,
+            gearPerSecondBuff = this.gearPerSecondBuff
+        };
     }
-
-    public void removeBuff(float gearPerClick, float gearPerSecond)
+    public BuildingBuffs gearPerSecondBuffMult(float gearPerSecondBuff)
     {
-        gearPerClick -= gearPerClickBuff;
-        gearPerSecond -= gearPerSecondBuff;
+        return new BuildingBuffs
+        {
+            gearPerClickBuff = this.gearPerClickBuff,
+            gearPerSecondBuff = this.gearPerSecondBuff * gearPerSecondBuff
+        };
     }
 }

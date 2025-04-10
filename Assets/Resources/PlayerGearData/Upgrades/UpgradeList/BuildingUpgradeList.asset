@@ -9,9 +9,8 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5148ed2095a1dbe4a84452b2bb47c7f1, type: 3}
-  m_Name: BuyableBuildingList
+  m_Script: {fileID: 11500000, guid: 37ca4dfa7fdba6541b54323f4fb61d57, type: 3}
+  m_Name: BuildingUpgradeList
   m_EditorClassIdentifier: 
-  <buildingList>k__BackingField:
-  - {fileID: 11400000, guid: d04d6a3062ad0c841a1646dcd9c41956, type: 2}
-  - {fileID: 11400000, guid: a61902bff1355a548bb1f35f2abc2f7a, type: 2}
+  <ListOfUpgrade>k__BackingField:
+  - {fileID: 11400000, guid: b5bde91c7f40aee42a0081087a065334, type: 2}

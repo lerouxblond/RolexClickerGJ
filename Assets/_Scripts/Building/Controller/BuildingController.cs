@@ -31,6 +31,11 @@ public class BuildingController : MonoBehaviour
         InitializeBuildingData();
     }
 
+    private void Update()
+    {
+        checkIfBuildingIsUnlocked();
+    }
+
     #region Building Methods
     public void BuyBuilding(BuildingSO building)
     {
@@ -63,5 +68,20 @@ public class BuildingController : MonoBehaviour
     {
         buildingListUI.UpdateBuildingSlots(buildingList);
     }
+    #endregion
+
+    #region Data methods
+    private void checkIfBuildingIsUnlocked()
+    {
+        foreach (var building in buildingList.buildingList)
+        {
+            if (building.buildingUnlockCost == ClickerDataSO.Instance.gearCount && !building.isUnlocked)
+            {
+                building.unlockBuilding();
+                UpdateBuildingSlots();
+            }
+        }
+    }
+
     #endregion
 }

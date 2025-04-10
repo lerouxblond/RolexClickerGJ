@@ -19,7 +19,8 @@ public class gearCounterUI : MonoBehaviour
 
     private void updateGearUI()
     {
-        countTXT.text = ClickerDataSO.Instance.gearCount.ToString();
+        float roundedCount = (float)Math.Round(ClickerDataSO.Instance.gearCount, 2);
+        countTXT.text = roundedCount.ToString();
         GearPerClickTXT.text = $"{ClickerDataSO.Instance.gearPerSecond} per click";
     }
 }
