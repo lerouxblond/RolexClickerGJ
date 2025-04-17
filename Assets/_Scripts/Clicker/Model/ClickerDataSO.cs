@@ -79,14 +79,12 @@ public class ClickerDataSO : ScriptableObject
 
     public float getGearRatePerSecond()
     {
-        // return the rate of gear per second depending on the building multiplier
         
         return possesedBuilding.GetRPSBuildingMultiplier();
     }
 
     public float getGearRatePerClick()
     {
-        // return the rate of gear per click depending on the building multiplier
         
         return possesedBuilding.GetRPCBuildingMultiplier();
     }

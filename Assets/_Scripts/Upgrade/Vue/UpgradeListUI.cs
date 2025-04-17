@@ -48,17 +48,6 @@ public class UpgradeListUI : MonoBehaviour
 
     public void updateSlotUI(UpgradeListUI upgradeListUI)
     {
-        foreach (Transform child in contentTransform)
-        {
-            Destroy(child.gameObject);
-        }
-        foreach (BuildingUpgradeSO upgradeSO in upgradeList.ListOfUpgrade)
-        {
-            UpgradeSlotUI upgradeSlot = Instantiate(upgradeSlotPrefab, contentTransform);
-            upgradeSlot.Initialize(upgradeSO);
-            upgradeSlot.OnUpgradeSlotClick += OnUpgradeSlotBuy;
-            upgradeSO.onUpgradeUnlock += upgradeSlot.ShowUpgradeSlot;
-            upgradeSO.onUpgradeBuy += removeUpgradeFromList;
-        }
+       
     }
 }

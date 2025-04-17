@@ -17,20 +17,24 @@ public class gearClickerUI : MonoBehaviour, IPointerClickHandler
     private Vector3 originalScale;
 
     #endregion
+
     #region Audio
     [Header("Audio")]
     [SerializeField] private AudioClip clickAudioClip;
     public SoundManager soundManager;
     #endregion
 
+    #region Events
     public UnityAction OnGearClicked;
+
+    #endregion
 
     private void Start()
     {
         originalScale = transform.localScale;
     }
 
-
+    #region Corountines Methods
     private void OnGearImageClicked()
     {
         StartCoroutine(AnimateClickedButton());
@@ -49,17 +53,6 @@ public class gearClickerUI : MonoBehaviour, IPointerClickHandler
         
     }
 
-
-    public void OnPointerClick(PointerEventData eventData)
-    {
-        if (eventData.button == PointerEventData.InputButton.Left)
-        {
-            
-            OnGearImageClicked();
-            OnGearClicked?.Invoke();
-        }
-    }
-
     private IEnumerator ScaleOverTime(Vector3 targetScale, float duration)
     {
         Vector3 startScale = transform.localScale;
@@ -74,4 +67,19 @@ public class gearClickerUI : MonoBehaviour, IPointerClickHandler
 
         transform.localScale = targetScale;
     }
+
+    #endregion
+
+    #region Pointer Methods
+    public void OnPointerClick(PointerEventData eventData)
+    {
+        if (eventData.button == PointerEventData.InputButton.Left)
+        {
+
+            OnGearImageClicked();
+            OnGearClicked?.Invoke();
+        }
+    }
+
+    #endregion
 }
